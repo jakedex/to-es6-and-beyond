@@ -1,6 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 
+const debug = process.env.NODE_ENV !== 'production'
+
 module.exports = {
   entry: [
     'whatwg-fetch',
@@ -8,12 +10,6 @@ module.exports = {
     './src/main',
     'webpack-dev-server/client?http://localhost:8080'
   ],
-  output: {
-    publicPath: '/',
-    filename: 'bundle.js'
-  },
-  debug: true,
-  devtool: 'source-map',
   module: {
     loaders: [
       {
@@ -26,7 +22,18 @@ module.exports = {
       }
     ]
   },
+  output: {
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  debug,
+  devtool: debug ? 'source-map' : null,
   devServer: {
-    contentBase: './src'
-  }
+    // contentBase: './src'
+  },
+  plugins: debug ? [] : [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+  ]
 }

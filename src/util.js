@@ -11,10 +11,9 @@ export const loadTrackArtworks = (tracks) => {
 
 export const displayAlbums = (albums) => {
   const elem = document.querySelector('#gallery')
-  console.log(albums)
   elem.innerHTML = albums
     .filter(album => getImageURL(album.image))
     .map(({ name: title, artist, url, image }) => {
-      return `<a data-title="${title}" data-artist="${artist.name}" href="${url}"><img src="${image[image.length - 1]['#text']}" /></a>`
+      return `<a data-title="${title}" data-artist="${artist.name}" href="${url}"><img src="${getImageURL(image)}" /></a>`
     }).join('\n')
 }

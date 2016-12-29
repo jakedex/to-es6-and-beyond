@@ -11,7 +11,6 @@ const form = document.querySelector('#form_user')
 const input = document.querySelector('#input_user')
 
 form.addEventListener('submit', (e) => {
-  console.log('clicked!')
   e.preventDefault()
   if (!input.value || !input.value.trim()) return
 
