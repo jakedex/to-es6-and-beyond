@@ -3,8 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title>LastFM | Top Played 2016</title>
+    <style media="screen">
+      body {
+        margin: 0;
+      }
+
+      a {
+        display: inline-block;
+        float: left;
+        width: 20vw;
+        height: 20vw;
+      }
+
+      img {
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
+    <form id="form_user" action="" method="">
+      <input type="text" name="user" id="input_user" value="Last.fm Username">
+      <input type="submit" name="submit_user" id="btn_user" value="View" />
+    </form>
+    <div id="gallery"></div>
     <script src="bundle.js"></script>
   </body>
 </html>
