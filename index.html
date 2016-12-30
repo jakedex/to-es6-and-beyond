@@ -26,7 +26,7 @@
       header {
         display: flex;
         position: relative;
-        padding: 2rem 0 4rem;
+        padding: 1rem 0 2rem;
         flex-direction: column;
         align-items: center;
         overflow: hidden;
@@ -34,13 +34,13 @@
 
       header::after {
         content: "2016";
-        font-size: 35.527rem;
+        font-size: 38vw;
         opacity: 0.2;
         font-weight: 700;
         position: absolute;
         letter-spacing: -13px;
         z-index: -1;
-        bottom: -19rem;
+        bottom: -20vw;
       }
 
       h1 {
@@ -69,7 +69,7 @@
       }
 
       @media screen and (max-width: 600px) {
-        .album > span, .album::after {
+        .album > span, .album::after, .album::before {
           display: none !important;
         }
       }
