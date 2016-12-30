@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "build": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js -p",
-    "clean": "rm bundle.js bundle.js.map"
+    "clean": "rm bundle.js"
   },
   "author": "Jake Dexheimer <jakedex@gmail.com> (http://www.jakedex.com)",
   "license": "ISC",
