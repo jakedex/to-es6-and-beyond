@@ -9,12 +9,16 @@ const topTracks = (user) => {
 
 const form = document.querySelector('#form_user')
 const input = document.querySelector('#input_user')
+const header_user = document.querySelector('#header_user')
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
   if (!input.value || !input.value.trim()) return
 
   topTracks(input.value)
+
+  header_user.innerHTML = `${input.value}'s`
+  input.value = ''
 })
 
 topTracks('jakedex')

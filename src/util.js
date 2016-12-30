@@ -14,6 +14,6 @@ export const displayAlbums = (albums) => {
   elem.innerHTML = albums
     .filter(album => getImageURL(album.image))
     .map(({ name: title, artist, url, image }) => {
-      return `<a data-title="${title}" data-artist="${artist.name}" href="${url}"><img src="${getImageURL(image)}" /></a>`
+      return `<a class="album" data-artist="${artist.name}" href="${url}"><span>${title}</span><img class="art" src="${getImageURL(image)}" /></a>`
     }).join('\n')
 }
