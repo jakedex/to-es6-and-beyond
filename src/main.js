@@ -1,26 +1,23 @@
-import LastfmApi from './lastfm-api'
-import { extractAlbums, displayAlbums } from './util'
-
-const topTracks = (user) => {
-  LastfmApi.load(user)
-    .then(extractAlbums)
-    .then(displayAlbums)
-}
+import { loadAlbums } from './api'
+import { extractAlbums, insertAlbums } from './util'
 
 const form = document.querySelector('#form_user')
 const input = document.querySelector('#input_user')
-const header_user = document.querySelector('#header_user')
+const headerUser = document.querySelector('#header_user')
+
+const displayTopAlbums = user =>
+  loadAlbums(user)
+    .then(extractAlbums)
+    .then(insertAlbums)
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
   if (!input.value || !input.value.trim()) return
 
-  topTracks(input.value)
+  displayTopAlbums(input.value)
 
-  header_user.innerHTML = `${input.value}'s`
+  headerUser.innerHTML = `${input.value}'s`
   input.value = ''
 })
 
-topTracks('jakedex')
-
-export default {}
+displayTopAlbums('jakedex')
